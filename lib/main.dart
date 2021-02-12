@@ -34,34 +34,20 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final items = List.generate(100, (index) => index).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text("제목"),
       ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            color: Colors.red,
-            width: 100,
-            height: 100,
-            padding: const EdgeInsets.all(8.0),
-            margin: const EdgeInsets.all(8.0),
-          ),
-          Container(
-            color: Colors.green,
-            width: 80,
-            height: 80,
-            padding: const EdgeInsets.all(8.0),
-            margin: const EdgeInsets.all(8.0),
-          ),
-          Container(
-            color: Colors.blue,
-            width: 60,
-            height: 60,
-            padding: const EdgeInsets.all(8.0),
-            margin: const EdgeInsets.all(8.0),
-          ),
-        ],
+      /*
+      SingleChildScrollView: 화면 크기를 넘어설때 스크롤이 가능하게끔 하는 위젯 (하나의 자식을 포함하는 스크롤 가능한 위젯)
+      Column을 사용하여 상하 스크롤을 구현할 수 있지만, Column은 위젯의 크기만큼 스크롤 영역을 가지기에 사용하기에 불편하다.
+      이때 ListBody를 사용하면 스크롤 가능 역역이 가로로 꽉 차기 때문에 스크롤에 더 용이하다.
+       */
+      body: SingleChildScrollView(
+        child: ListBody(
+          children: items.map((i) => Text("$i")).toList(),
+        )
       ),
     );
   }
