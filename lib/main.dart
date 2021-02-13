@@ -40,30 +40,13 @@ class MyHomePage extends StatelessWidget {
         title: Text("제목"),
       ),
       /*
-      SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 리스트 표현에 더 최적화된 위젯
-      리스트 항목을 직접 정의해도 되지만 ListTile 위젯을 사용하면 편리
+      Tab과 연동하여 사용하지않으면 좌우로 슬라이드가 가능한지 모를수 있기에 단독으로는 사용하지않음
        */
-      body: ListView(
-        scrollDirection: Axis.vertical,
+      body: PageView(
         children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Home"),
-            trailing: Icon(Icons.navigate_next),
-            onTap: (){},
-          ),
-          ListTile(
-            leading: Icon(Icons.event),
-            title: Text("Event"),
-            trailing: Icon(Icons.navigate_next),
-            onTap: (){},
-          ),
-          ListTile(
-            leading: Icon(Icons.camera),
-            title: Text("Camera"),
-            trailing: Icon(Icons.navigate_next),
-            onTap: (){},
-          )
+          Container(color: Colors.red),
+          Container(color: Colors.blue),
+          Container(color: Colors.pink),
         ],
       ),
     );
