@@ -1,41 +1,59 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      backgroundColor: Colors.red,
-      appBar: AppBar(
-        title: Text("Dice"),
-        backgroundColor: Colors.red,
-      ),
-      body: DicePage(),
-    ),
-  ));
+  runApp(MyApp());
 }
 
-class DicePage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          // Expanded 크기에 맞게 레이아웃이 적용됨
-          // 같은 영역의 Expanded가 있을때 flex는 가로세로 영역에 대한 비율 ex) 현재는 1:2의 비율로 들어감
-          Expanded(
-            // FlatButton 이미지나 텍스트에 버튼이벤트를 연결할때 사용
-            child: FlatButton(
-              onPressed: () {
-                print("left dice click");
-              },
-              padding: EdgeInsets.all(16),
-              child: Image.asset('images/dice2.png'))
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('images/test.jpg'),
+              ),
+              Text(
+                "JM",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "FLUTTER DEVELOPER",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.teal,
+                  letterSpacing: 2.5,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  child: Padding(
+                    padding: EdgeInsets.all(18),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.phone,
+                          color: Colors.green,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "010-1234-5678",
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
+                        )
+                      ],
+                    ),
+                  ))
+            ],
           ),
-          Expanded(
-              child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Image.asset('images/dice2.png'))
-          )
-        ],
+        ),
       ),
     );
   }
